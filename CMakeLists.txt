@@ -49,6 +49,10 @@ message("  CMAKE_CXX_FLAGS_DEBUG: ${CMAKE_CXX_FLAGS_DEBUG}")
 message("  CMAKE_CXX_FLAGS_RELEASE: ${CMAKE_CXX_FLAGS_RELEASE}")
 message("----------------------------------")
 
+# hiredis
+add_subdirectory(hiredis)
+# end hiredis
+
 set(PYTHON_BINDING_SRCS
 	python/redis.cpp
 )

@@ -7,11 +7,15 @@ else()
     set(CMAKE_BUILD_TYPE RELEASE)
 endif()
 
+
+
 # libgo
 if (WIN32)
+	include_directories(${PROJECT_SOURCE_DIR}/libgo/include/libgo/windows)
 	set(LIBGO_LIB ${PROJECT_SOURCE_DIR}/libgo/lib/win32)
 endif ()
 include_directories(${PROJECT_SOURCE_DIR}/libgo/include)
+include_directories(${PROJECT_SOURCE_DIR}/libgo/include/libgo)
 link_directories(${LIBGO_LIB})
 set(libgo_link libgo)
 # end  libgo
@@ -28,8 +32,8 @@ link_directories(${PYTHON_LIB})
 
 # cflags
 if (WIN32)
-    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
-    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd /EHsc")
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT /EHsc")
 endif ()
 # end cflags
 

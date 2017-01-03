@@ -55,8 +55,8 @@ set(PYTHON_BINDING_SRCS
 add_library(redis MODULE ${PYTHON_BINDING_SRCS})
 if(WIN32)
 	set_target_properties(redis PROPERTIES SUFFIX ".pyd")
+	target_link_libraries(redis ${python_link} ${libgo_link} ws2_32)
 endif()
-target_link_libraries(redis ${python_link} ${libgo_link})
 
 # test
 add_subdirectory(tests)
